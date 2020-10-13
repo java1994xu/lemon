@@ -1,0 +1,99 @@
+server:
+ servlet:
+  # 应用的访问路径
+  context-path: /lemon
+ port: 8081
+
+spring:
+ datasource:
+  type: com.alibaba.druid.pool.DruidDataSource
+  druid:
+   #   数据源基本配置
+   url: jdbc:mysql://122.51.59.149:3306/frame_db?serverTimezone=GMT%2B8&characterEncoding=UTF-8&useUnicode=true&useSSL=false&tinyInt1isBit=false&useAffectedRows=true
+   username: root
+   password: Mr.12345
+   driver-class-name: com.mysql.cj.jdbc.Driver
+   #   数据源其他配置
+   # 初始化大小，最小，最大
+   initialSize: 5
+   minIdle: 5
+   maxActive: 20
+   # 配置获取连接等待超时的时间
+   maxWait: 60000
+   # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+   timeBetweenEvictionRunsMillis: 60000
+   # 配置一个连接在池中最小生存的时间，单位是毫秒
+   minEvictableIdleTimeMillis: 300000
+   validationQuery: SELECT 1 FROM DUAL
+   testWhileIdle: true
+   #归还连接时会执行validationQuery检测连接是否有效,开启会降低性能,默认为true
+   testOnBorrow: false
+   testOnReturn: false
+   # 打开PSCache，并且指定每个连接上PSCache的大小
+   poolPreparedStatements: true
+   maxPoolPreparedStatementPerConnectionSize: 20
+   #   配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+   filters: stat,wall
+   useGlobalDataSourceStat: true
+   # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+   connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+   stat-view-servlet:
+    login-username: admin
+    login-password: 123@abcd
+    enabled: true
+
+  #redis 配置
+ redis:
+   database: 0
+   host: 122.51.59.149
+   lettuce:
+    pool:
+     max-active: 8   #最大连接数据库连接数,设 0 为没有限制
+     max-idle: 8     #最大等待连接中的数量,设 0 为没有限制
+     max-wait: -1ms  #最大建立连接等待时间。如果超过此时间将接到异常。设为-1表示无限制。
+     min-idle: 0     #最小等待连接中的数量,设 0 为没有限制
+    shutdown-timeout: 100ms
+   password: 'Mr.12345'
+   port: 6379
+
+# ====================MybatisPlus====================
+mybatis-plus:
+ # Mapper对应的xml文件扫描，多个目录用逗号或者分号分隔
+ # 如果是放在src/main/java目录下 classpath:/com/yourpackage/*/mapper/*Mapper.xml
+ # 如果是放在resource目录 classpath:/mapper/*Mapper.xml
+ mapper-locations: classpath*:com/lemon/**/mapper/*/*Mapper.xml
+ # MyBaits 别名包扫描路径，通过该属性可以给包中的类注册别名，注册后在 Mapper 对应的 XML 文件中可以直接使用类名，而不用使用全限定的类名(即 XML 中调用的时候不用包含包名)
+# typeAliasesPackage: com.frame.**.entity,com.frame.**.dto
+ configuration:
+  # 这个配置会将执行的sql打印出来，在开发或测试的时候可以用
+  log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  # 如果查询结果中包含空值的列，则 MyBatis 在映射的时候，不会映射这个字段
+  call-setters-on-nulls: true
+  cache-enabled: false
+  # 配置返回数据库(column下划线命名&&返回java实体是驼峰命名)，自动匹配无需as（没开启这个，SQL需要写as： select user_id as userId）
+  map-underscore-to-camel-case: true
+  # SIMPLE：该执行器类型不做特殊的事情，为每个语句的执行创建一个新的预处理语句,REUSE：该执行器类型会复用预处理语句,BATCH：该执行器类型会批量执行所有的更新语句
+  default-executor-type: reuse
+  # 配置JdbcTypeForNull, oracle数据库必须配置
+  jdbc-type-for-null: 'null'
+#  lazy-loading-enabled: true
+#  default-enum-type-handler: org.apache.ibatis.type.EnumTypeHandler
+ global-config:
+  # 是否控制台 print mybatis-plus 的 LOGO
+  banner: false
+  #刷新mapper 调试神器
+  db-config:
+   # IGNORED	忽略判断 NOT_NULL 非NULL判断  NOT_EMPTY 非空判断(只对字符串类型字段,其他类型字段依然为非NULL判断)
+   insert-strategy: not_null
+   update-strategy: not_null
+   select-strategy: not_empty
+   id-type: assign_id
+   #驼峰下划线转换
+   table-underline: true
+   #数据库大写下划线转换
+   #  capital-mode: true
+   #逻辑删除配置 (逻辑删除下有效) 需要注入逻辑策略LogicSqlInjector 以@Bean方式注入 @TableLogic
+   logic-delete-value: 1
+   logic-not-delete-value: 0
+
+

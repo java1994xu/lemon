@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lemon.system.depart_role_user.mapper.DepartRoleUserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lemon.system.depart_role_user.entity.DepartRoleUser">
+        <id column="id" property="id" />
+        <result column="user_id" property="userId" />
+        <result column="drole_id" property="droleId" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, user_id, drole_id
+    </sql>
+
+</mapper>

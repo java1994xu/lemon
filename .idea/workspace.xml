@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4f615841-0bfc-4f4d-a672-c30e4ce22936" name="Default Changelist" comment="" />
+    <list default="true" id="4f615841-0bfc-4f4d-a672-c30e4ce22936" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/lemon-admin/src/main/java/com/lemon/system/role/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/lemon-admin/src/main/java/com/lemon/system/role/controller/RoleController.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,6 +19,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JRebelWorkspace">
     <option name="jrebelEnabledAutocompile" value="true" />
@@ -35,6 +40,7 @@
     </option>
   </component>
   <component name="ProjectId" id="1hDTugLYMFNHegrCYUK433Fk1PN" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -153,6 +159,7 @@
       <workItem from="1601220824954" duration="2825000" />
       <workItem from="1601304555263" duration="3225000" />
       <workItem from="1601397179363" duration="5194000" />
+      <workItem from="1602610444966" duration="112000" />
     </task>
     <servers />
   </component>
@@ -267,12 +274,12 @@
       <screen x="1920" y="0" width="1536" height="824" />
     </state>
     <state width="254" height="198" key="ShowFilterAction_Filter_Popup/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1600968256606" />
-    <state x="449" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1601397181217">
+    <state x="449" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1602610444022">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="449" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1601397181217" />
     <state x="2369" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1601220950270" />
-    <state x="449" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1601028550690" />
+    <state x="449" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1602610444022" />
     <state x="406" y="23" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1599547119658">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -285,12 +292,12 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1599547117971" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1601028728942">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1602610460726">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1599585139180" />
     <state x="2351" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1600968256602" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1601028728942" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1602610460726" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -6,7 +6,7 @@ import java.util.Random;
 
 /**
  * @author xubb
- * @Description
+ * @Description StringUtils工具类
  * @create 2020-09-16 16:51
  */
 public class StringUtils {

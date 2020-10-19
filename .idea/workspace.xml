@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f615841-0bfc-4f4d-a672-c30e4ce22936" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/lemon-admin/src/main/java/com/lemon/system/role/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/lemon-admin/src/main/java/com/lemon/system/role/controller/RoleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lemon-admin/src/main/java/com/lemon/system/depart/entity/Depart.java" beforeDir="false" afterPath="$PROJECT_DIR$/lemon-admin/src/main/java/com/lemon/system/depart/entity/Depart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lemon-admin/src/main/java/com/lemon/system/depart_role/entity/DepartRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/lemon-admin/src/main/java/com/lemon/system/depart_role/entity/DepartRole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lemon-admin/src/main/java/com/lemon/system/depart_role_user/entity/DepartRoleUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/lemon-admin/src/main/java/com/lemon/system/depart_role_user/entity/DepartRoleUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lemon-admin/src/main/java/com/lemon/system/dict/entity/Dict.java" beforeDir="false" afterPath="$PROJECT_DIR$/lemon-admin/src/main/java/com/lemon/system/dict/entity/Dict.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lemon-admin/src/main/java/com/lemon/system/dict_item/entity/DictItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/lemon-admin/src/main/java/com/lemon/system/dict_item/entity/DictItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lemon-admin/src/main/java/com/lemon/system/login/entity/LoginDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/lemon-admin/src/main/java/com/lemon/system/login/entity/LoginDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lemon-admin/src/main/java/com/lemon/system/role/entity/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/lemon-admin/src/main/java/com/lemon/system/role/entity/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lemon-admin/src/main/java/com/lemon/system/user/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/lemon-admin/src/main/java/com/lemon/system/user/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lemon-admin/src/main/java/com/lemon/system/user_role/entity/UserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/lemon-admin/src/main/java/com/lemon/system/user_role/entity/UserRole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lemon-common/src/main/java/com/lemon/common/vo/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/lemon-common/src/main/java/com/lemon/common/vo/Result.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,6 +134,12 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SearchEverywhereConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="YAMLKeysSearchEverywhereContributor" />
+      <filtered-out-file-type name="ActionSearchEverywhereContributor" />
+    </file-type-list>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -160,6 +175,7 @@
       <workItem from="1601304555263" duration="3225000" />
       <workItem from="1601397179363" duration="5194000" />
       <workItem from="1602610444966" duration="112000" />
+      <workItem from="1603114141590" duration="851000" />
     </task>
     <servers />
   </component>
@@ -167,12 +183,12 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2494" y="113" key="#com.intellij.ide.util.MemberChooser" timestamp="1601137765693">
-      <screen x="1920" y="0" width="1536" height="824" />
+    <state x="574" y="113" key="#com.intellij.ide.util.MemberChooser" timestamp="1603114994815">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="574" y="113" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1600187378944" />
     <state x="2494" y="113" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1601137765693" />
-    <state x="574" y="113" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1600246483079" />
+    <state x="574" y="113" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1603114994815" />
     <state x="2468" y="270" width="439" height="292" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1600967893501">
       <screen x="1920" y="0" width="1536" height="824" />
     </state>
@@ -270,20 +286,25 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="270" y="54" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1600239538064" />
-    <state width="254" height="198" key="ShowFilterAction_Filter_Popup" timestamp="1600968256606">
-      <screen x="1920" y="0" width="1536" height="824" />
+    <state width="254" height="198" key="ShowFilterAction_Filter_Popup" timestamp="1603114675198">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="254" height="198" key="ShowFilterAction_Filter_Popup/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1600968256606" />
-    <state x="449" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1602610444022">
+    <state width="254" height="198" key="ShowFilterAction_Filter_Popup/0.0.1536.824@0.0.1536.824" timestamp="1603114675198" />
+    <state x="449" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1603114142328">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="449" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1601397181217" />
     <state x="2369" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1601220950270" />
-    <state x="449" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1602610444022" />
+    <state x="449" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1603114142328" />
     <state x="406" y="23" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1599547119658">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="406" y="23" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.824@0.0.1536.824" timestamp="1599547119658" />
+    <state x="447" y="145" width="642" height="534" key="find.popup" timestamp="1603114975939">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="447" y="145" width="642" height="534" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1603114975939" />
     <state x="369" y="113" width="868" height="598" key="new project wizard" timestamp="1599545589920">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -292,12 +313,12 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1599547117971" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1602610460726">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1603114675188">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1599585139180" />
     <state x="2351" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/1920.0.1536.824@1920.0.1536.824" timestamp="1600968256602" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1602610460726" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1603114675188" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

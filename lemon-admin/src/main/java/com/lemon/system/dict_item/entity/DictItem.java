@@ -18,7 +18,6 @@ import lombok.EqualsAndHashCode;
  * @author xubb
  * @since 2020-09-15
  */
-@Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("sys_dict_item")
 @ApiModel(value="DictItem对象", description="")
@@ -56,4 +55,112 @@ public class DictItem implements Serializable {
     private Date updateTime;
 
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getDictId() {
+        return dictId;
+    }
+
+    public void setDictId(String dictId) {
+        this.dictId = dictId;
+    }
+
+    public String getItemText() {
+        return itemText;
+    }
+
+    public void setItemText(String itemText) {
+        this.itemText = itemText;
+    }
+
+    public String getItemValue() {
+        return itemValue;
+    }
+
+    public void setItemValue(String itemValue) {
+        this.itemValue = itemValue;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Integer getSortOrder() {
+        return sortOrder;
+    }
+
+    public void setSortOrder(Integer sortOrder) {
+        this.sortOrder = sortOrder;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public String getCreateBy() {
+        return createBy;
+    }
+
+    public void setCreateBy(String createBy) {
+        this.createBy = createBy;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getUpdateBy() {
+        return updateBy;
+    }
+
+    public void setUpdateBy(String updateBy) {
+        this.updateBy = updateBy;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    @Override
+    public String toString() {
+        return "DictItem{" +
+                "id='" + id + '\'' +
+                ", dictId='" + dictId + '\'' +
+                ", itemText='" + itemText + '\'' +
+                ", itemValue='" + itemValue + '\'' +
+                ", description='" + description + '\'' +
+                ", sortOrder=" + sortOrder +
+                ", status=" + status +
+                ", createBy='" + createBy + '\'' +
+                ", createTime=" + createTime +
+                ", updateBy='" + updateBy + '\'' +
+                ", updateTime=" + updateTime +
+                '}';
+    }
 }

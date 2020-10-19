@@ -18,7 +18,6 @@ import lombok.EqualsAndHashCode;
  * @author xubb
  * @since 2020-09-27
  */
-@Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("sys_depart")
 @ApiModel(value="Depart对象", description="组织机构表")
@@ -88,4 +87,194 @@ public class Depart implements Serializable {
     private Date updateTime;
 
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getParentId() {
+        return parentId;
+    }
+
+    public void setParentId(String parentId) {
+        this.parentId = parentId;
+    }
+
+    public String getDepartName() {
+        return departName;
+    }
+
+    public void setDepartName(String departName) {
+        this.departName = departName;
+    }
+
+    public String getDepartNameEn() {
+        return departNameEn;
+    }
+
+    public void setDepartNameEn(String departNameEn) {
+        this.departNameEn = departNameEn;
+    }
+
+    public String getDepartNameAbbr() {
+        return departNameAbbr;
+    }
+
+    public void setDepartNameAbbr(String departNameAbbr) {
+        this.departNameAbbr = departNameAbbr;
+    }
+
+    public Integer getDepartOrder() {
+        return departOrder;
+    }
+
+    public void setDepartOrder(Integer departOrder) {
+        this.departOrder = departOrder;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getOrgCategory() {
+        return orgCategory;
+    }
+
+    public void setOrgCategory(String orgCategory) {
+        this.orgCategory = orgCategory;
+    }
+
+    public String getOrgType() {
+        return orgType;
+    }
+
+    public void setOrgType(String orgType) {
+        this.orgType = orgType;
+    }
+
+    public String getOrgCode() {
+        return orgCode;
+    }
+
+    public void setOrgCode(String orgCode) {
+        this.orgCode = orgCode;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    public String getFax() {
+        return fax;
+    }
+
+    public void setFax(String fax) {
+        this.fax = fax;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getMemo() {
+        return memo;
+    }
+
+    public void setMemo(String memo) {
+        this.memo = memo;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getDelFlag() {
+        return delFlag;
+    }
+
+    public void setDelFlag(String delFlag) {
+        this.delFlag = delFlag;
+    }
+
+    public String getCreateBy() {
+        return createBy;
+    }
+
+    public void setCreateBy(String createBy) {
+        this.createBy = createBy;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getUpdateBy() {
+        return updateBy;
+    }
+
+    public void setUpdateBy(String updateBy) {
+        this.updateBy = updateBy;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Depart{" +
+                "id='" + id + '\'' +
+                ", parentId='" + parentId + '\'' +
+                ", departName='" + departName + '\'' +
+                ", departNameEn='" + departNameEn + '\'' +
+                ", departNameAbbr='" + departNameAbbr + '\'' +
+                ", departOrder=" + departOrder +
+                ", description='" + description + '\'' +
+                ", orgCategory='" + orgCategory + '\'' +
+                ", orgType='" + orgType + '\'' +
+                ", orgCode='" + orgCode + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", fax='" + fax + '\'' +
+                ", address='" + address + '\'' +
+                ", memo='" + memo + '\'' +
+                ", status='" + status + '\'' +
+                ", delFlag='" + delFlag + '\'' +
+                ", createBy='" + createBy + '\'' +
+                ", createTime=" + createTime +
+                ", updateBy='" + updateBy + '\'' +
+                ", updateTime=" + updateTime +
+                '}';
+    }
 }

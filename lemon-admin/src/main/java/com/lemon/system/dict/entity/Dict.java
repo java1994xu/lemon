@@ -18,7 +18,6 @@ import lombok.EqualsAndHashCode;
  * @author xubb
  * @since 2020-09-15
  */
-@Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("sys_dict")
 @ApiModel(value="Dict对象", description="")
@@ -57,4 +56,104 @@ public class Dict implements Serializable {
     private Integer type;
 
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getDictName() {
+        return dictName;
+    }
+
+    public void setDictName(String dictName) {
+        this.dictName = dictName;
+    }
+
+    public String getDictCode() {
+        return dictCode;
+    }
+
+    public void setDictCode(String dictCode) {
+        this.dictCode = dictCode;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Integer getDelFlag() {
+        return delFlag;
+    }
+
+    public void setDelFlag(Integer delFlag) {
+        this.delFlag = delFlag;
+    }
+
+    public String getCreateBy() {
+        return createBy;
+    }
+
+    public void setCreateBy(String createBy) {
+        this.createBy = createBy;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getUpdateBy() {
+        return updateBy;
+    }
+
+    public void setUpdateBy(String updateBy) {
+        this.updateBy = updateBy;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Dict{" +
+                "id='" + id + '\'' +
+                ", dictName='" + dictName + '\'' +
+                ", dictCode='" + dictCode + '\'' +
+                ", description='" + description + '\'' +
+                ", delFlag=" + delFlag +
+                ", createBy='" + createBy + '\'' +
+                ", createTime=" + createTime +
+                ", updateBy='" + updateBy + '\'' +
+                ", updateTime=" + updateTime +
+                ", type=" + type +
+                '}';
+    }
 }

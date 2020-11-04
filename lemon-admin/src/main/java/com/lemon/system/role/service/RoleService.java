@@ -5,11 +5,11 @@ import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
  * <p>
- * 角色表 服务类
+ * 角色信息表 服务类
  * </p>
  *
  * @author xubb
- * @since 2020-09-11
+ * @since 2020-11-04
  */
 public interface RoleService extends IService<Role> {
 
@@ -24,5 +24,4 @@ public interface RoleService extends IService<Role> {
      * @param ids
      */
     void deleteBatch(String ids);
-
 }

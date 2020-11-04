@@ -20,15 +20,14 @@ import java.util.Map;
 
 /**
  * <p>
- * 用户表 服务实现类
+ * 用户信息表 服务实现类
  * </p>
  *
  * @author xubb
- * @since 2020-09-11
+ * @since 2020-11-04
  */
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
-
 
     private UserMapper userMapper;
     private UserRoleMapper userRoleMapper;
@@ -65,7 +64,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public Result<JSONObject> getUserInfo(User user) {
         Result result = new Result();
         String password = user.getPassword();
-        String username = user.getUsername();
+        String username = user.getUserName();
         Map<String, Object> map = new HashMap<>();
         // 生成token
         map.put("token", "token");
@@ -85,7 +84,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Override
     public IPage<User> getUserList(Page<User> userPage, User user) {
-       return userMapper.getUserList(userPage,user);
+        return userMapper.getUserList(userPage,user);
     }
 
     @Override
@@ -95,7 +94,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             for (String roleId : array) {
                 UserRole userRole = new UserRole();
                 userRole.setRoleId(roleId);
-                userRole.setUserId(user.getId());
+                userRole.setUserId(user.getUserId());
                 userRoleMapper.insert(userRole);
             }
         }
@@ -116,3 +115,4 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         this.userRoleMapper = userRoleMapper;
     }
 }
+

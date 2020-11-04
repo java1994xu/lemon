@@ -5,19 +5,16 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.lemon.common.vo.Result;
 import com.lemon.system.user.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.lemon.system.user.mapper.UserMapper;
 
 /**
  * <p>
- * 用户表 服务类
+ * 用户信息表 服务类
  * </p>
  *
  * @author xubb
- * @since 2020-09-11
+ * @since 2020-11-04
  */
 public interface UserService extends IService<User> {
-
-
     /**
      * 检查用户是否有效
      * @param user

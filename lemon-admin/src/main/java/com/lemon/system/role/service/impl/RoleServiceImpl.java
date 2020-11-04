@@ -12,14 +12,15 @@ import java.util.Arrays;
 
 /**
  * <p>
- * 角色表 服务实现类
+ * 角色信息表 服务实现类
  * </p>
  *
  * @author xubb
- * @since 2020-09-11
+ * @since 2020-11-04
  */
 @Service
 public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements RoleService {
+
 
     private RoleMapper roleMapper;
     private UserRoleMapper userRoleMapper;

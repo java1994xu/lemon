@@ -2,7 +2,6 @@ package com.lemon.system.login.entity;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Data;
 
 /**
  * @author xubb

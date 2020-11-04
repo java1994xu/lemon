@@ -11,27 +11,27 @@ import com.lemon.system.user.service.UserService;
 import com.lemon.utils.PasswordUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import lombok.Value;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * <p>
- * 用户表 前端控制器
+ * 用户信息表 前端控制器
  * </p>
  *
  * @author xubb
- * @since 2020-09-11
+ * @since 2020-11-04
  */
 @Slf4j
 @Api(tags = "用户")
 @RestController
-@RequestMapping("/sys//user")
+@RequestMapping("//user")
 public class UserController {
-
 
     private UserService userService;
 
@@ -66,9 +66,9 @@ public class UserController {
 
             String salt = StringUtils.randomGen(8);
             user.setSalt(salt);
-            String passwordEncode = PasswordUtil.encrypt(user.getUsername(), user.getPassword(), salt);
+            String passwordEncode = PasswordUtil.encrypt(user.getUserName(), user.getPassword(), salt);
             user.setPassword(passwordEncode);
-            user.setStatus(0);
+            user.setStatus(CommonConstants.STATUS_ENABLE);
             user.setDelFlag(CommonConstants.DEL_FLAG_0);
             userService.save(user);
 //            userService.addUserWithRole(user, selectedRoles);
@@ -87,7 +87,7 @@ public class UserController {
     public Result<User> update(@RequestBody User user) {
         Result<User> result = new Result<>();
         try {
-            if (userService.getById(user.getId()) == null) {
+            if (userService.getById(user.getUserId()) == null) {
                 result.error500("未找到对应用户");
             } else {
 
@@ -125,5 +125,4 @@ public class UserController {
     public void setUserService(UserService userService) {
         this.userService = userService;
     }
-
 }

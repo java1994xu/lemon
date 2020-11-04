@@ -26,7 +26,7 @@ public class MpGeneratorUtil {
     /**
      * 数据库连结信息
      */
-    private final String dbUrl = "jdbc:mysql://122.51.59.149:3306/frame_db?serverTimezone=GMT%2B8&characterEncoding=UTF-8&useUnicode=true&useSSL=false&tinyInt1isBit=false&useAffectedRows=true";
+    private final String dbUrl = "jdbc:mysql://122.51.59.149:3306/frame-db-v1?serverTimezone=GMT%2B8&characterEncoding=UTF-8&useUnicode=true&useSSL=false&tinyInt1isBit=false&useAffectedRows=true";
     private final String driver = "com.mysql.cj.jdbc.Driver";
     private final String userName = "root";
     private final String password = "Mr.12345";
@@ -58,7 +58,7 @@ public class MpGeneratorUtil {
     /**
      * 指定生成的表名
      */
-    private final String[] tableNames = new String[]{"sys_depart", "sys_depart_role","sys_depart_role_user"};
+    private final String[] tableNames = new String[]{"sys_dept","sys_dict_data","sys_dict_type","sys_logininfo","sys_menu","sys_role","sys_role_dept","sys_role_menu","sys_user","sys_user_role"};
     /**
      * 生成文件，去掉表名的前缀sys_user==> prefix ="sys_",==>user.java
      */
@@ -192,7 +192,7 @@ public class MpGeneratorUtil {
                 .setBaseResultMap(true)
                 .setActiveRecord(false)
                 .setSwagger2(true)
-                .setIdType(IdType.ASSIGN_UUID)
+                .setIdType(IdType.ASSIGN_ID)
                 //作者
                 .setAuthor(author)
                 //设置输出路径

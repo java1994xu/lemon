@@ -4,7 +4,6 @@ package com.lemon.system.role.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.lemon.common.exception.LemonException;
 import com.lemon.common.vo.Result;
 import com.lemon.system.role.entity.Role;
 import com.lemon.system.role.service.RoleService;
@@ -13,21 +12,19 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 /**
- * 
- * 角色表 前端控制器
- *
+ * <p>
+ * 角色信息表 前端控制器
+ * </p>
  *
  * @author xubb
- * @since 2020-09-11
+ * @since 2020-11-04
  */
 @Slf4j
 @RestController
-@RequestMapping("/sys/role")
+@RequestMapping("/role")
 public class RoleController {
 
     private RoleService roleService;
@@ -78,7 +75,7 @@ public class RoleController {
     @ApiOperation("修改角色")
     @PutMapping("/update")
     public Result update(@RequestBody Role role) {
-        if (roleService.getById(role.getId()) == null) {
+        if (roleService.getById(role.getRoleId()) == null) {
             return Result.error("未找到对应角色");
         } else {
             if (roleService.updateById(role)) {
@@ -119,4 +116,5 @@ public class RoleController {
     public void setRoleService(RoleService roleService) {
         this.roleService = roleService;
     }
+
 }

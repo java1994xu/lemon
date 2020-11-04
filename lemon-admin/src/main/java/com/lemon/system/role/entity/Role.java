@@ -11,126 +11,64 @@ import lombok.EqualsAndHashCode;
 
 /**
  * <p>
- * 角色表
+ * 角色信息表
  * </p>
  *
  * @author xubb
- * @since 2020-09-15
+ * @since 2020-11-04
  */
+@Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("sys_role")
-@ApiModel(value="Role对象", description="角色表")
+@ApiModel(value="Role对象", description="角色信息表")
 public class Role implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "主键id")
-    @TableId(value = "id", type = IdType.ASSIGN_ID)
-    private String id;
+    @ApiModelProperty(value = "角色ID")
+    @TableId(value = "role_id", type = IdType.ASSIGN_ID)
+    private String roleId;
 
     @ApiModelProperty(value = "角色名称")
     private String roleName;
 
-    @ApiModelProperty(value = "角色编码")
-    private String roleCode;
+    @ApiModelProperty(value = "角色权限字符串")
+    private String roleKey;
 
-    @ApiModelProperty(value = "描述")
-    private String description;
+    @ApiModelProperty(value = "显示顺序")
+    private Integer roleSort;
 
-    @ApiModelProperty(value = "创建人")
+    @ApiModelProperty(value = "数据范围（1：全部数据权限 2：自定数据权限 3：本部门数据权限 4：本部门及以下数据权限）")
+    private String dataScope;
+
+    @ApiModelProperty(value = "菜单树选择项是否关联显示")
+    private Integer menuCheckStrictly;
+
+    @ApiModelProperty(value = "部门树选择项是否关联显示")
+    private Integer deptCheckStrictly;
+
+    @ApiModelProperty(value = "角色状态（0正常 1停用）")
+    private String status;
+
+    @ApiModelProperty(value = "删除标志（0代表存在 2代表删除）")
+    private String delFlag;
+
+    @ApiModelProperty(value = "创建者")
     private String createBy;
 
     @ApiModelProperty(value = "创建时间")
     @TableField(fill = FieldFill.INSERT)
     private Date createTime;
 
-    @ApiModelProperty(value = "更新人")
+    @ApiModelProperty(value = "更新者")
     private String updateBy;
 
     @ApiModelProperty(value = "更新时间")
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date updateTime;
 
+    @ApiModelProperty(value = "备注")
+    private String remark;
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getRoleName() {
-        return roleName;
-    }
-
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
-    }
-
-    public String getRoleCode() {
-        return roleCode;
-    }
-
-    public void setRoleCode(String roleCode) {
-        this.roleCode = roleCode;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getCreateBy() {
-        return createBy;
-    }
-
-    public void setCreateBy(String createBy) {
-        this.createBy = createBy;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getUpdateBy() {
-        return updateBy;
-    }
-
-    public void setUpdateBy(String updateBy) {
-        this.updateBy = updateBy;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    @Override
-    public String toString() {
-        return "Role{" +
-                "id='" + id + '\'' +
-                ", roleName='" + roleName + '\'' +
-                ", roleCode='" + roleCode + '\'' +
-                ", description='" + description + '\'' +
-                ", createBy='" + createBy + '\'' +
-                ", createTime=" + createTime +
-                ", updateBy='" + updateBy + '\'' +
-                ", updateTime=" + updateTime +
-                '}';
-    }
 }

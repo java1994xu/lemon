@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.*;
 
 import java.util.Date;
 import java.io.Serializable;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -11,28 +12,47 @@ import lombok.EqualsAndHashCode;
 
 /**
  * <p>
- * 用户表
+ * 用户信息表
  * </p>
  *
  * @author xubb
- * @since 2020-09-15
+ * @since 2020-11-04
  */
+@Data
 @EqualsAndHashCode(callSuper = false)
 @TableName("sys_user")
-@ApiModel(value="User对象", description="用户表")
+@ApiModel(value = "User对象", description = "用户信息表")
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "主键id")
-    @TableId(value = "id", type = IdType.ASSIGN_UUID)
-    private String id;
+    @ApiModelProperty(value = "用户ID")
+    @TableId(value = "user_id", type = IdType.ASSIGN_ID)
+    private String userId;
 
-    @ApiModelProperty(value = "登录账号")
-    private String username;
+    @ApiModelProperty(value = "部门ID")
+    private String deptId;
 
-    @ApiModelProperty(value = "真实姓名")
-    private String realname;
+    @ApiModelProperty(value = "用户账号")
+    private String userName;
+
+    @ApiModelProperty(value = "用户昵称")
+    private String nickName;
+
+    @ApiModelProperty(value = "用户类型（00系统用户）")
+    private String userType;
+
+    @ApiModelProperty(value = "用户邮箱")
+    private String email;
+
+    @ApiModelProperty(value = "手机号码")
+    private String phonenumber;
+
+    @ApiModelProperty(value = "用户性别（0男 1女 2未知）")
+    private String sex;
+
+    @ApiModelProperty(value = "头像地址")
+    private String avatar;
 
     @ApiModelProperty(value = "密码")
     private String password;
@@ -40,138 +60,77 @@ public class User implements Serializable {
     @ApiModelProperty(value = "md5密码盐")
     private String salt;
 
-    @ApiModelProperty(value = "头像")
-    private String avatar;
+    @ApiModelProperty(value = "帐号状态（0正常 1停用）")
+    private String status;
 
-    @ApiModelProperty(value = "生日")
-    private Date birthday;
+    @ApiModelProperty(value = "删除标志（0代表存在 2代表删除）")
+    private String delFlag;
 
-    @ApiModelProperty(value = "性别(0-默认未知,1-男,2-女)")
-    private Integer sex;
+    @ApiModelProperty(value = "最后登录IP")
+    private String loginIp;
 
-    @ApiModelProperty(value = "电子邮件")
-    private String email;
+    @ApiModelProperty(value = "最后登录时间")
+    private Date loginDate;
 
-    @ApiModelProperty(value = "电话")
-    private String phone;
-
-    @ApiModelProperty(value = "机构编码")
-    private String orgCode;
-
-    @ApiModelProperty(value = "状态0-正常,-1-冻结)")
-    private Integer status;
-
-    @ApiModelProperty(value = "删除状态(0-正常,1-已删除)")
-    private Integer delFlag;
-
-    @ApiModelProperty(value = "第三方登录的唯一标识")
-    private String thirdId;
-
-    @ApiModelProperty(value = "第三方类型")
-    private String thirdType;
-
-    @ApiModelProperty(value = "同步工作流引擎(1-同步,0-不同步)")
-    private Integer activitiSync;
-
-    @ApiModelProperty(value = "工号，唯一键")
-    private String workNo;
-
-    @ApiModelProperty(value = "职务，关联职务表")
-    private String post;
-
-    @ApiModelProperty(value = "座机号")
-    private String telephone;
-
-    @ApiModelProperty(value = "创建人")
+    @ApiModelProperty(value = "创建者")
     private String createBy;
 
-    @TableField(fill = FieldFill.INSERT)
     @ApiModelProperty(value = "创建时间")
+    @TableField(fill = FieldFill.INSERT)
     private Date createTime;
 
-    @ApiModelProperty(value = "更新人")
+    @ApiModelProperty(value = "更新者")
     private String updateBy;
 
-    @TableField(fill = FieldFill.INSERT_UPDATE)
     @ApiModelProperty(value = "更新时间")
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date updateTime;
 
-    @ApiModelProperty(value = "身份（1普通成员 2上级）")
-    private Integer userIdentity;
-
-    @ApiModelProperty(value = "负责部门")
-    private String departIds;
-
-    @ApiModelProperty(value = "多租户标识")
-    private String relTenantIds;
-
+    @ApiModelProperty(value = "备注")
+    private String remark;
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }
 
-    public String getId() {
-        return id;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public String getUsername() {
-        return username;
+    public String getDeptId() {
+        return deptId;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setDeptId(String deptId) {
+        this.deptId = deptId;
     }
 
-    public String getRealname() {
-        return realname;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setRealname(String realname) {
-        this.realname = realname;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getPassword() {
-        return password;
+    public String getNickName() {
+        return nickName;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
     }
 
-    public String getSalt() {
-        return salt;
+    public String getUserType() {
+        return userType;
     }
 
-    public void setSalt(String salt) {
-        this.salt = salt;
-    }
-
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
-
-    public Date getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
-    }
-
-    public Integer getSex() {
-        return sex;
-    }
-
-    public void setSex(Integer sex) {
-        this.sex = sex;
+    public void setUserType(String userType) {
+        this.userType = userType;
     }
 
     public String getEmail() {
@@ -182,84 +141,68 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getPhonenumber() {
+        return phonenumber;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setPhonenumber(String phonenumber) {
+        this.phonenumber = phonenumber;
     }
 
-    public String getOrgCode() {
-        return orgCode;
+    public String getSex() {
+        return sex;
     }
 
-    public void setOrgCode(String orgCode) {
-        this.orgCode = orgCode;
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 
-    public Integer getStatus() {
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
-    public Integer getDelFlag() {
+    public String getDelFlag() {
         return delFlag;
     }
 
-    public void setDelFlag(Integer delFlag) {
+    public void setDelFlag(String delFlag) {
         this.delFlag = delFlag;
     }
 
-    public String getThirdId() {
-        return thirdId;
+    public String getLoginIp() {
+        return loginIp;
     }
 
-    public void setThirdId(String thirdId) {
-        this.thirdId = thirdId;
+    public void setLoginIp(String loginIp) {
+        this.loginIp = loginIp;
     }
 
-    public String getThirdType() {
-        return thirdType;
+    public Date getLoginDate() {
+        return loginDate;
     }
 
-    public void setThirdType(String thirdType) {
-        this.thirdType = thirdType;
-    }
-
-    public Integer getActivitiSync() {
-        return activitiSync;
-    }
-
-    public void setActivitiSync(Integer activitiSync) {
-        this.activitiSync = activitiSync;
-    }
-
-    public String getWorkNo() {
-        return workNo;
-    }
-
-    public void setWorkNo(String workNo) {
-        this.workNo = workNo;
-    }
-
-    public String getPost() {
-        return post;
-    }
-
-    public void setPost(String post) {
-        this.post = post;
-    }
-
-    public String getTelephone() {
-        return telephone;
-    }
-
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
+    public void setLoginDate(Date loginDate) {
+        this.loginDate = loginDate;
     }
 
     public String getCreateBy() {
@@ -294,60 +237,19 @@ public class User implements Serializable {
         this.updateTime = updateTime;
     }
 
-    public Integer getUserIdentity() {
-        return userIdentity;
+    public String getRemark() {
+        return remark;
     }
 
-    public void setUserIdentity(Integer userIdentity) {
-        this.userIdentity = userIdentity;
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 
-    public String getDepartIds() {
-        return departIds;
+    public String getSalt() {
+        return salt;
     }
 
-    public void setDepartIds(String departIds) {
-        this.departIds = departIds;
-    }
-
-    public String getRelTenantIds() {
-        return relTenantIds;
-    }
-
-    public void setRelTenantIds(String relTenantIds) {
-        this.relTenantIds = relTenantIds;
-    }
-
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id='" + id + '\'' +
-                ", username='" + username + '\'' +
-                ", realname='" + realname + '\'' +
-                ", password='" + password + '\'' +
-                ", salt='" + salt + '\'' +
-                ", avatar='" + avatar + '\'' +
-                ", birthday=" + birthday +
-                ", sex=" + sex +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", orgCode='" + orgCode + '\'' +
-                ", status=" + status +
-                ", delFlag=" + delFlag +
-                ", thirdId='" + thirdId + '\'' +
-                ", thirdType='" + thirdType + '\'' +
-                ", activitiSync=" + activitiSync +
-                ", workNo='" + workNo + '\'' +
-                ", post='" + post + '\'' +
-                ", telephone='" + telephone + '\'' +
-                ", createBy='" + createBy + '\'' +
-                ", createTime=" + createTime +
-                ", updateBy='" + updateBy + '\'' +
-                ", updateTime=" + updateTime +
-                ", userIdentity=" + userIdentity +
-                ", departIds='" + departIds + '\'' +
-                ", relTenantIds='" + relTenantIds + '\'' +
-                '}';
+    public void setSalt(String salt) {
+        this.salt = salt;
     }
 }

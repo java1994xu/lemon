@@ -10,7 +10,7 @@
         <result column="nick_name" property="nickName" />
         <result column="user_type" property="userType" />
         <result column="email" property="email" />
-        <result column="phonenumber" property="phonenumber" />
+        <result column="phone" property="phone" />
         <result column="sex" property="sex" />
         <result column="avatar" property="avatar" />
         <result column="password" property="password" />
@@ -28,7 +28,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        user_id, dept_id, user_name, nick_name, user_type, email, phonenumber, sex, avatar, password, salt ,status, del_flag, login_ip, login_date, create_by, create_time, update_by, update_time, remark
+        user_id, dept_id, user_name, nick_name, user_type, email, phone, sex, avatar, password, salt ,status, del_flag, login_ip, login_date, create_by, create_time, update_by, update_time, remark
     </sql>
 
     <select id="getUserList" parameterType="com.lemon.system.user.entity.User"
@@ -37,19 +37,16 @@
         where 1=1
         and u.del_flag = '0'
         <if test="user.username != null and user.username != ''">
-            and u.username like concat(concat('%',#{user.username},'%'))
+            and u.user_name like concat(concat('%',#{user.username},'%'))
         </if>
         <if test="user.status != null ">
             AND u.status = #{user.status}
         </if>
-        <if test="user.realname != null and user.realname != ''">
-            AND u.realname like concat(concat('%', #{user.realname}, '%'))
+        <if test="user.nickname != null and user.nickname != ''">
+            AND u.nick_name like concat(concat('%', #{user.nick_name}, '%'))
         </if>
         <if test="user.phone != null and user.phone !=''">
             and u.phone like concat(concat('%', #{user.phone},'%'))
-        </if>
-        <if test="user.telephone != null and user.telephone !=''">
-            and u.telephone like concat(concat('%', #{user.telephone},'%'))
         </if>
         <if test="user.email != null and user.email !=''">
             and u.email like concat(concat('%', #{user.email},'%'))

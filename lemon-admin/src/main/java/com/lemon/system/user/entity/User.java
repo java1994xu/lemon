@@ -46,7 +46,7 @@ public class User implements Serializable {
     private String email;
 
     @ApiModelProperty(value = "手机号码")
-    private String phonenumber;
+    private String phone;
 
     @ApiModelProperty(value = "用户性别（0男 1女 2未知）")
     private String sex;
@@ -141,12 +141,12 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public String getPhonenumber() {
-        return phonenumber;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setPhonenumber(String phonenumber) {
-        this.phonenumber = phonenumber;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getSex() {

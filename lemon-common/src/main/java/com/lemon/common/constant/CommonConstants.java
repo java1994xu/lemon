@@ -27,7 +27,6 @@ public interface CommonConstants {
     public static final String HTTPS = "https://";
 
 
-
     /**
      * 正常状态
      */
@@ -39,12 +38,22 @@ public interface CommonConstants {
     public static final String STATUS_DISABLE = "-1";
 
     /**
-     * 删除标志
+     * 删除标志，已删除
      */
-    public static final String DEL_FLAG_1 = "1";
+    public static final String DEL_FLAG_Y = "1";
 
     /**
-     * 未删除
+     * 删除标志，未删除
      */
-    public static final String DEL_FLAG_0 = "0";
+    public static final String DEL_FLAG_N = "0";
+
+    /**
+     * 是否存在，是
+     */
+    public static final String IS_EXISTS_Y = "1";
+
+    /**
+     * 是否存在，否
+     */
+    public static final String IS_EXISTS_N = "0";
 }

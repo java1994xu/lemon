@@ -38,7 +38,7 @@ public class LoginController {
         String password = dto.getPassword();
 
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("username", username);
+        queryWrapper.eq("user_name", username);
         User user = userService.getOne(queryWrapper);
 
         // TODO 校验验证码
@@ -49,13 +49,13 @@ public class LoginController {
         }
 
         //2. 校验用户名或密码是否正确
-        String encryptPwd = PasswordUtil.encrypt(username, password, user.getSalt());
+      /*  String encryptPwd = PasswordUtil.encrypt(username, password, user.getSalt());
         String pwd = user.getPassword();
         if (!encryptPwd.equals(pwd)) {
             result.error500("用户名或密码错误");
             return result;
         }
-
+*/
         return userService.getUserInfo(user);
 
     }

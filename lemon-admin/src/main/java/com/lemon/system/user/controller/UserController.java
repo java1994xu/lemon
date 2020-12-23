@@ -30,7 +30,7 @@ import java.util.Map;
 @Slf4j
 @Api(tags = "用户")
 @RestController
-@RequestMapping("//user")
+@RequestMapping("sys/user")
 public class UserController {
 
     private UserService userService;
@@ -69,7 +69,7 @@ public class UserController {
             String passwordEncode = PasswordUtil.encrypt(user.getUserName(), user.getPassword(), salt);
             user.setPassword(passwordEncode);
             user.setStatus(CommonConstants.STATUS_ENABLE);
-            user.setDelFlag(CommonConstants.DEL_FLAG_0);
+            user.setDelFlag(CommonConstants.DEL_FLAG_N);
             userService.save(user);
 //            userService.addUserWithRole(user, selectedRoles);
 //            userService.addUserWithDepart(user, selectedDeparts);

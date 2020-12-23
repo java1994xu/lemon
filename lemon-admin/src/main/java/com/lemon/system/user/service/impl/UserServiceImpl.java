@@ -47,7 +47,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             return result.error500("该用户不存在，请注册");
         }
         //情况2：根据用户信息查询，该用户已注销
-        if (CommonConstants.DEL_FLAG_1.equals(user.getDelFlag())) {
+        if (CommonConstants.DEL_FLAG_Y.equals(user.getDelFlag())) {
             result.error500("该用户已注销");
             return result;
         }

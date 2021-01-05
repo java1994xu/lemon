@@ -97,3 +97,5 @@ mybatis-plus:
    logic-not-delete-value: 0
 
 
+lemon:
+ fileRootPath: /home/upload

@@ -1,10 +1,10 @@
 package com.lemon.system.user.service.impl;
 
+import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.lemon.common.constant.CommonConstants;
-import com.lemon.common.utils.StringUtils;
 import com.lemon.common.vo.Result;
 import com.lemon.system.user.entity.User;
 import com.lemon.system.user.mapper.UserMapper;
@@ -89,7 +89,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Override
     public void saveUserRoleRelation(User user, String roles) {
-        if(StringUtils.isNotBlank(roles)){
+        if(StrUtil.isNotBlank(roles)){
             String[] array = roles.split(",");
             for (String roleId : array) {
                 UserRole userRole = new UserRole();

@@ -1,4 +1,4 @@
-package com.lemon.common.config.swagger;
+package com.lemon.config.swagger;
 
 import com.github.xiaoymin.swaggerbootstrapui.annotations.EnableSwaggerBootstrapUI;
 import io.swagger.annotations.ApiOperation;

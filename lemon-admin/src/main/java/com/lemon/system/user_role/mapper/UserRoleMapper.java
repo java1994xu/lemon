@@ -2,6 +2,7 @@ package com.lemon.system.user_role.mapper;
 
 import com.lemon.system.user_role.entity.UserRole;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
 
 /**
  * <p>
@@ -11,6 +12,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author xubb
  * @since 2020-11-04
  */
+@Mapper
 public interface UserRoleMapper extends BaseMapper<UserRole> {
     /**
      * 删除单个角色id时，删除对应的用户角色关系

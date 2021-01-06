@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="lemon-admin:war">
+    <output-path>$PROJECT_DIR$/lemon-admin/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>lemon-admin</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="lemonAdmin.war">
+      <element id="artifact" artifact-name="lemon-admin:war exploded" />
+    </root>
+  </artifact>
+</component>

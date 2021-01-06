@@ -10,6 +10,7 @@
     <groupId>com.lemon</groupId>
     <artifactId>lemon-admin</artifactId>
     <version>1.0.0</version>
+    <packaging>war</packaging>
     <name>lemon-admin</name>
     <description>admin system</description>
 
@@ -41,6 +42,8 @@
             <scope>runtime</scope>
         </dependency>
 
+
+
     </dependencies>
 
     <build>
@@ -50,6 +53,8 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
+        <finalName>lemonAdmin</finalName>
+
     </build>
 
 </project>

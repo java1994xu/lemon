@@ -9,7 +9,7 @@ spring:
   type: com.alibaba.druid.pool.DruidDataSource
   druid:
    #   数据源基本配置
-   url: jdbc:mysql://122.51.59.149:3306/frame-db-v1?serverTimezone=GMT%2B8&characterEncoding=UTF-8&useUnicode=true&useSSL=false&tinyInt1isBit=false&useAffectedRows=true
+   url: jdbc:mysql://122.51.59.149:3306/fastprint?serverTimezone=GMT%2B8&characterEncoding=UTF-8&useUnicode=true&useSSL=false&tinyInt1isBit=false&useAffectedRows=true
    username: root
    password: Mr.12345
    driver-class-name: com.mysql.cj.jdbc.Driver

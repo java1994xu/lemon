@@ -47,10 +47,12 @@ public class Swagger2Config implements WebMvcConfigurer {
      * @return Docket
      */
     @Bean
-    public Docket createRestApi() {
+    public Docket createSystemApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
+                .groupName("System")
                 .select()
+                .apis(RequestHandlerSelectors.basePackage("com.lemon.system"))
                 //加了ApiOperation注解的类，才生成接口文档
                 .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
                 .paths(PathSelectors.any())
@@ -58,6 +60,22 @@ public class Swagger2Config implements WebMvcConfigurer {
                 .securitySchemes(Collections.singletonList(securityScheme()));
         //.globalOperationParameters(setHeaderToken());
     }
+
+    @Bean
+    public Docket createIPrintApi() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .apiInfo(apiInfo())
+                .groupName("iprint.ink")
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.lemon.print"))
+                //加了ApiOperation注解的类，才生成接口文档
+                .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
+                .paths(PathSelectors.any())
+                .build()
+                .securitySchemes(Collections.singletonList(securityScheme()));
+        //.globalOperationParameters(setHeaderToken());
+    }
+
 
     /**
      * 安全模式，这里指定token通过Authorization头请求头传递

@@ -47,14 +47,30 @@
     </dependencies>
 
     <build>
+        <finalName>lemon</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                    <include>**/*.yml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+
+                </configuration>
             </plugin>
         </plugins>
-        <finalName>lemonAdmin</finalName>
-
     </build>
 
 </project>

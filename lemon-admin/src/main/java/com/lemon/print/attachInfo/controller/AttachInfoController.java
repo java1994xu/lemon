@@ -52,7 +52,7 @@ public class AttachInfoController {
     @ApiOperation(value = "uploadPrintFile")
     public Result uploadPrintFile(@RequestParam("file") MultipartFile file, @RequestParam("groupGUid") String groupGUid, @RequestParam("groupType") String groupType) {
         try {
-            attachInfoService.save(file, groupGUid, groupType);
+            attachInfoService.savePrintFile(file, groupGUid, groupType);
             return Result.success();
         } catch (IOException e) {
             e.printStackTrace();

@@ -1,13 +1,18 @@
 package com.lemon.print.attachInfo.service.impl;
 
 import cn.hutool.core.io.FileUtil;
+import cn.hutool.core.io.file.FileReader;
 import cn.hutool.core.util.StrUtil;
+import com.aspose.words.Document;
+import com.aspose.words.FieldNumPages;
+import com.aspose.words.FieldType;
 import com.lemon.config.properties.LemonProperties;
 import com.lemon.print.attachInfo.entity.AttachInfo;
 import com.lemon.print.attachInfo.mapper.AttachInfoMapper;
 import com.lemon.print.attachInfo.service.AttachInfoService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.poi.hwpf.HWPFDocument;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.HttpHeaders;
@@ -18,8 +23,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
-import java.io.File;
-import java.io.IOException;
+import javax.xml.parsers.DocumentBuilder;
+import java.io.*;
 import java.util.Date;
 
 /**
@@ -83,6 +88,21 @@ public class AttachInfoServiceImpl extends ServiceImpl<AttachInfoMapper, AttachI
         attachInfo.setUploadTime(now);
 
         this.save(attachInfo);
+    }
+
+    public static int getWordPageCount(String fullpath) throws Exception {
+
+
+        HWPFDocument wordDoc = new HWPFDocument(new FileInputStream(fullpath));
+        Integer pageCount = wordDoc.getSummaryInformation().getPageCount();
+
+
+        FileReader fileReader = new FileReader(fullpath);
+        InputStream is = new ByteArrayInputStream(fileReader.readBytes());
+        Document doc = new Document(is);
+        int pageCount1 = doc.getPageCount();
+
+        return pageCount1;
     }
 
     @Override

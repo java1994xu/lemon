@@ -231,16 +231,18 @@
 
 
 
-        <dependency>
-            <groupId>com.aspose</groupId>
-            <artifactId>aspose-cloud-words</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.aspose</groupId>
-            <artifactId>aspose-cloud-pdf</artifactId>
-            <version>20.4.0</version>
-        </dependency>
+            <dependency>
+                <groupId>com.aspose</groupId>
+                <artifactId>aspose-words</artifactId>
+                <version>20.11</version>
+                <classifier>jdk17</classifier>
+            </dependency>
+            <dependency>
+                <groupId>com.aspose</groupId>
+                <artifactId>aspose-words</artifactId>
+                <version>20.11</version>
+                <classifier>javadoc</classifier>
+            </dependency>
 
 
 
@@ -265,7 +267,12 @@
         <repository>
             <id>aliyun</id>
             <name>aliyun</name>
-            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+            <url>https://maven.aliyun.com/repository/public</url>
+        </repository>
+        <repository>
+            <id>AsposeJavaAPI</id>
+            <name>Aspose Java API</name>
+            <url>https://repository.aspose.com/repo/</url>
         </repository>
     </repositories>
 

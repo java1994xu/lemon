@@ -7,7 +7,7 @@
         <packaging>war</packaging>
       </options>
     </properties>
-    <root id="archive" name="lemonAdmin.war">
+    <root id="archive" name="lemon.war">
       <element id="artifact" artifact-name="lemon-admin:war exploded" />
     </root>
   </artifact>

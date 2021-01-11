@@ -41,7 +41,12 @@ spring:
     login-username: admin
     login-password: 123@abcd
     enabled: true
-
+#设置上传文件大小限制
+ servlet:
+  multipart:
+   enabled: true
+   max-file-size: 20MB
+   max-request-size: 20MB
   #redis 配置
  redis:
    database: 0

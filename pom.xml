@@ -230,21 +230,17 @@
         <!--POI   end   -->
 
 
+        <dependency>
+            <groupId>com.aspose</groupId>
+            <artifactId>aspose.words.jdk.16</artifactId>
+            <version>7.0.0</version>
+        </dependency>
 
-      <!--      <dependency>
-                <groupId>com.aspose</groupId>
-                <artifactId>aspose-words</artifactId>
-                <version>20.11</version>
-                <classifier>jdk17</classifier>
-            </dependency>
-            <dependency>
-                <groupId>com.aspose</groupId>
-                <artifactId>aspose-words</artifactId>
-                <version>20.11</version>
-                <classifier>javadoc</classifier>
-            </dependency>-->
-
-
+        <dependency>
+            <groupId>com.aspose</groupId>
+            <artifactId>aspose-words</artifactId>
+            <version>16.4.0</version>
+        </dependency>
 
     </dependencies>
 
@@ -269,11 +265,11 @@
             <name>aliyun</name>
             <url>https://maven.aliyun.com/repository/public</url>
         </repository>
-        <repository>
+       <!-- <repository>
             <id>AsposeJavaAPI</id>
             <name>Aspose Java API</name>
             <url>https://repository.aspose.com/repo/</url>
-        </repository>
+        </repository>-->
     </repositories>
 
 </project>

@@ -1,9 +1,10 @@
 package com.lemon.print.attachInfo.controller;
 
 
+import cn.hutool.core.io.FileUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.api.R;
 import com.lemon.common.vo.Result;
+import com.lemon.print.attachInfo.dto.AttachDto;
 import com.lemon.print.attachInfo.entity.AttachInfo;
 import com.lemon.print.attachInfo.service.AttachInfoService;
 import io.swagger.annotations.Api;
@@ -15,12 +16,10 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
-import java.net.URLEncoder;
-import java.nio.charset.Charset;
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -41,9 +40,9 @@ public class AttachInfoController {
 
     @PostMapping("/listByGroupGuid")
     @ApiOperation(value = "listByGroupGuid")
-    public Result listByGroupGuid(@RequestParam String groupGuid) {
+    public Result listByGroupGuid(@RequestBody AttachDto dto) {
         QueryWrapper<AttachInfo> queryWrapper = new QueryWrapper<>();
-        queryWrapper.lambda().eq(AttachInfo::getGroupGuid, groupGuid);
+        queryWrapper.lambda().eq(AttachInfo::getGroupGuid, dto.getGroupGuid());
         List<AttachInfo> list = attachInfoService.list(queryWrapper);
         return Result.success(list);
     }
@@ -52,8 +51,8 @@ public class AttachInfoController {
     @ApiOperation(value = "uploadPrintFile")
     public Result uploadPrintFile(@RequestParam("file") MultipartFile file, @RequestParam("groupGUid") String groupGUid, @RequestParam("groupType") String groupType) {
         try {
-            attachInfoService.savePrintFile(file, groupGUid, groupType);
-            return Result.success();
+            Map<String, Object> result = attachInfoService.savePrintFile(file, groupGUid, groupType);
+            return Result.success(result);
         } catch (IOException e) {
             e.printStackTrace();
             return Result.error("异常");
@@ -86,5 +85,16 @@ public class AttachInfoController {
             return attachInfoService.export(file);
         }
         return null;
+    }
+
+
+    @PostMapping("/deleteFile")
+    @ApiOperation(value = "deleteFile")
+    public Result deleteFileByGuid(@RequestBody AttachDto dto) {
+        AttachInfo attachInfo = attachInfoService.getById(dto.getAttachGuid());
+        boolean flag = FileUtil.del(attachInfo.getAttachPath());
+        attachInfoService.removeById(attachInfo.getUnitguid());
+        return Result.success();
+
     }
 }

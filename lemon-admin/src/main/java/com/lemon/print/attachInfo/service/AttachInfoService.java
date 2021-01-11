@@ -8,6 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Map;
 
 /**
  * <p>
@@ -35,7 +36,7 @@ public interface AttachInfoService extends IService<AttachInfo> {
      * @param groupType
      * @throws IOException
      */
-    void savePrintFile(MultipartFile file, String groupGUid, String groupType) throws IOException;
+    Map<String ,Object> savePrintFile(MultipartFile file, String groupGUid, String groupType) throws IOException;
 
     /**
      * 导出、下载文件

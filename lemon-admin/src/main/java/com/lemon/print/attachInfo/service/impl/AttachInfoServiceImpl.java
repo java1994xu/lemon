@@ -11,6 +11,7 @@ import com.lemon.print.attachInfo.entity.AttachInfo;
 import com.lemon.print.attachInfo.mapper.AttachInfoMapper;
 import com.lemon.print.attachInfo.service.AttachInfoService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.lemon.utils.WordUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.hwpf.HWPFDocument;
@@ -95,60 +96,22 @@ public class AttachInfoServiceImpl extends ServiceImpl<AttachInfoMapper, AttachI
         attachInfo.setGroupType(groupType);
         attachInfo.setUploadTime(now);
 
-        boolean save = this.save(attachInfo);
         String count = "0";
         try {
-//            count = getWordPageCount(suffix, file.getInputStream());
-            count = getPages(suffix, file.getInputStream());
+            count = WordUtils.getFilePages(suffix, file.getInputStream());
         } catch (Exception e) {
-
             e.printStackTrace();
             count = "无法获取";
         }
-        log.info(count + "");
+        attachInfo.setPageNum(count);
+        boolean save = this.save(attachInfo);
         Map<String, Object> result = new HashMap<>();
         result.put("unitGuid", attachGuid);
         result.put("pageCount", count);
         return result;
     }
 
-    public String getPages(String suffix, InputStream fis) throws Exception {
 
-        Integer pageCount = 0;
-        if (".doc".equals(suffix) || ".docx".equals(suffix)) {
-            Document doc = new Document(fis);
-            pageCount = doc.getPageCount();
-
-        }else if (".ppt".equals(suffix) || ".pptx".equals(suffix)) {
-            Document doc = new Document(fis);
-            pageCount = doc.getPageCount();
-
-        }
-
-        return pageCount.toString();
-    }
-
-
-    public static String getWordPageCount(String suffix, InputStream fis) throws Exception {
-
-        Integer pageCount = 0;
-        if (".doc".equals(suffix)) {
-            WordExtractor doc = new WordExtractor(fis);
-            pageCount = doc.getSummaryInformation().getPageCount();
-        } else if (".docx".equals(suffix)) {
-            XWPFDocument docx = new XWPFDocument(fis);
-            pageCount = docx.getProperties().getExtendedProperties().getUnderlyingProperties().getPages();
-        }
-
-
-//aspose
-//        FileReader fileReader = new FileReader(fullpath);
-//        InputStream is = new ByteArrayInputStream(fileReader.readBytes());
-//        Document doc = new Document(is);
-//        int pageCount1 = doc.getPageCount();
-
-        return pageCount.toString();
-    }
 
     @Override
     public ResponseEntity<FileSystemResource> export(File file) {

@@ -1,8 +1,11 @@
 package com.lemon.utils;
 
+import cn.hutool.core.date.DateUtil;
+import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
+import com.baomidou.mybatisplus.generator.InjectionConfig;
 import com.baomidou.mybatisplus.generator.config.*;
 import com.baomidou.mybatisplus.generator.config.converts.MySqlTypeConvert;
 import com.baomidou.mybatisplus.generator.config.rules.DbColumnType;
@@ -10,6 +13,9 @@ import com.baomidou.mybatisplus.generator.config.rules.IColumnType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 import org.junit.Test;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @Description mybatisPlus生成代码工具类
@@ -58,7 +64,7 @@ public class MpGeneratorUtil {
     /**
      * 指定生成的表名
      */
-    private final String[] tableNames = new String[]{"attach_info","order_info","printer_info","store_info","user"};
+    private final String[] tableNames = new String[]{"attach_info", "order_info", "printer_info", "store_info", "user"};
     /**
      * 生成文件，去掉表名的前缀sys_user==> prefix ="sys_",==>user.java
      */
@@ -117,10 +123,13 @@ public class MpGeneratorUtil {
         //全局变量配置
         GlobalConfig globalConfig = getGlobalConfig(serviceNameStartWithI);
         //包名配置
-        PackageConfig packageConfig = getPackageConfig(packageName, tableName.replace(prefix,""));
+        PackageConfig packageConfig = getPackageConfig(packageName, tableName.replace(prefix, ""));
+        TemplateConfig templateConfig = getTemplateConfig();
+        InjectionConfig injectionConfig = getInjectionConfig(packageConfig, tableName);
         //自动生成
         atuoGenerator(dataSourceConfig, strategyConfig, globalConfig, packageConfig);
     }
+
 
     /**
      * 集成
@@ -139,6 +148,28 @@ public class MpGeneratorUtil {
                 .setPackageInfo(packageConfig)
                 .setTemplateEngine(new FreemarkerTemplateEngine())
                 .execute();
+    }
+
+
+    private TemplateConfig getTemplateConfig() {
+        return new TemplateConfig()
+                .setController("templates/Controller.java");
+    }
+
+    private InjectionConfig getInjectionConfig(PackageConfig packageConfig, String tableName) {
+        InjectionConfig injectionConfig = new InjectionConfig() {
+            @Override
+            public void initMap() {
+                Map<String, Object> map = new HashMap<>();
+                map.put("tableName", tableName.toUpperCase());
+                map.put("className", tableName.toLowerCase());
+
+                map.put("author", author);
+                map.put("moduleName", moduleName);
+                this.setMap(map);
+            }
+        };
+        return injectionConfig;
     }
 
     /**

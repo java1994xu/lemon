@@ -43,4 +43,8 @@ public class StoreInfo implements Serializable {
     private String createUser;
 
 
+
+
+
+
 }

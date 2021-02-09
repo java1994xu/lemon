@@ -39,7 +39,7 @@ public class AttachInfoController {
 
 
     @PostMapping("/listByGroupGuid")
-    @ApiOperation(value = "listByGroupGuid")
+    @ApiOperation(value = "根据groupid获取附件列表")
     public Result listByGroupGuid(@RequestBody AttachDto dto) {
         QueryWrapper<AttachInfo> queryWrapper = new QueryWrapper<>();
         queryWrapper.lambda().eq(AttachInfo::getGroupGuid, dto.getGroupGuid());
@@ -48,7 +48,7 @@ public class AttachInfoController {
     }
 
     @PostMapping("/uploadPrintFile")
-    @ApiOperation(value = "uploadPrintFile")
+    @ApiOperation(value = "打印机项目上传文件，返回页数")
     public Result uploadPrintFile(@RequestParam("file") MultipartFile file, @RequestParam("groupGUid") String groupGUid, @RequestParam("groupType") String groupType) {
         try {
             Map<String, Object> result = attachInfoService.savePrintFile(file, groupGUid, groupType);
@@ -60,11 +60,10 @@ public class AttachInfoController {
     }
 
     @PostMapping("/uploadFile")
-    @ApiOperation(value = "uploadFile")
+    @ApiOperation(value = "通用上传文件")
     public Result uploadFile(@RequestParam("file") MultipartFile file, @RequestParam("groupGUid") String groupGUid, @RequestParam("groupType") String groupType) {
         try {
-            attachInfoService.save(file, groupGUid, groupType);
-            return Result.success();
+            return Result.success(attachInfoService.save(file, groupGUid, groupType));
         } catch (IOException e) {
             e.printStackTrace();
             return Result.error("异常");
@@ -73,7 +72,7 @@ public class AttachInfoController {
 
 
     @GetMapping("/download")
-    @ApiOperation(value = "download")
+    @ApiOperation(value = "通过附件GUid下载文件")
     public ResponseEntity<FileSystemResource> downloadFile(@RequestParam("attachGuid") String attachGuid, HttpServletResponse response) throws UnsupportedEncodingException {
 
         AttachInfo attachInfo = attachInfoService.getById(attachGuid);
@@ -89,7 +88,7 @@ public class AttachInfoController {
 
 
     @PostMapping("/deleteFile")
-    @ApiOperation(value = "deleteFile")
+    @ApiOperation(value = "删除附件")
     public Result deleteFileByGuid(@RequestBody AttachDto dto) {
         AttachInfo attachInfo = attachInfoService.getById(dto.getAttachGuid());
         boolean flag = FileUtil.del(attachInfo.getAttachPath());

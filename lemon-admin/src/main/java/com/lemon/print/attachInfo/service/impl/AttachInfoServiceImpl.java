@@ -2,33 +2,24 @@ package com.lemon.print.attachInfo.service.impl;
 
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.io.FileUtil;
-import cn.hutool.core.io.file.FileReader;
 import cn.hutool.core.util.StrUtil;
-import cn.hutool.extra.tokenizer.Word;
-import com.aspose.words.Document;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.lemon.config.properties.LemonProperties;
 import com.lemon.print.attachInfo.entity.AttachInfo;
 import com.lemon.print.attachInfo.mapper.AttachInfoMapper;
 import com.lemon.print.attachInfo.service.AttachInfoService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.lemon.utils.WordUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.hwpf.HWPFDocument;
-import org.apache.poi.hwpf.extractor.WordExtractor;
-import org.apache.poi.xwpf.usermodel.XWPFDocument;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
-import javax.xml.parsers.DocumentBuilder;
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -51,7 +42,7 @@ public class AttachInfoServiceImpl extends ServiceImpl<AttachInfoMapper, AttachI
 
 
     @Override
-    public void save(MultipartFile file, String groupGUid, String groupType) throws IOException {
+    public String save(MultipartFile file, String groupGUid, String groupType) throws IOException {
         Date now = new Date();
         String time = DateUtil.format(now, "yyyyMM");
         String attachGuid = StrUtil.uuid();
@@ -72,6 +63,7 @@ public class AttachInfoServiceImpl extends ServiceImpl<AttachInfoMapper, AttachI
         attachInfo.setUploadTime(now);
 
         this.save(attachInfo);
+        return attachGuid;
     }
 
     @Override

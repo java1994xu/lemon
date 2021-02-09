@@ -27,7 +27,7 @@ public interface AttachInfoService extends IService<AttachInfo> {
      * @param groupType
      * @throws IOException
      */
-    void save(MultipartFile file, String groupGUid, String groupType) throws IOException;
+    String save(MultipartFile file, String groupGUid, String groupType) throws IOException;
 
     /**
      * 针对需要打印的文件进行保存

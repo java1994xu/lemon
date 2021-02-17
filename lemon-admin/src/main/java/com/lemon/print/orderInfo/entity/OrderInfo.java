@@ -53,6 +53,8 @@ public class OrderInfo implements Serializable {
     private Date createTime;
 
     private String createUser;
+    @ApiModelProperty(value = "取件人姓名")
+    private String owner;
 
 
 }

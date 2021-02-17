@@ -23,6 +23,10 @@ public class SaveOrderDTO {
     @ApiModelProperty(value = "门店id")
     private String storeId;
 
+    @ApiModelProperty(value = "取件人姓名")
+    private String owner;
+
+
     @ApiModelProperty(value = "选择了哪些附件打印，将id组成list")
     private List<String> attachGuidList;
 }

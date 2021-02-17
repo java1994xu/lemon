@@ -20,5 +20,11 @@
     <sql id="Base_Column_List">
         unitguid, store_id, order_number, order_pay_status, order_print_status, order_delivery_status, delivery_code, is_delete, create_time, create_user
     </sql>
+    <select id="getPrintOrderList" resultType="com.lemon.print.orderInfo.entity.OrderInfo">
+        select * from order_info where 1=1
+        and order_print_status='0'
+        and store_id = #{storeId}
+
+    </select>
 
 </mapper>

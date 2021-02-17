@@ -8,6 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
 /**
@@ -43,5 +44,5 @@ public interface AttachInfoService extends IService<AttachInfo> {
      * @param file
      * @return
      */
-    ResponseEntity<FileSystemResource> export(File file);
+    ResponseEntity<FileSystemResource> export(File file) throws UnsupportedEncodingException;
 }

@@ -20,6 +20,8 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.annotation.Resource;
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -106,13 +108,13 @@ public class AttachInfoServiceImpl extends ServiceImpl<AttachInfoMapper, AttachI
 
 
     @Override
-    public ResponseEntity<FileSystemResource> export(File file) {
+    public ResponseEntity<FileSystemResource> export(File file) throws UnsupportedEncodingException {
         if (file == null) {
             return null;
         }
         HttpHeaders headers = new HttpHeaders();
         headers.add("Cache-Control", "no-cache, no-store, must-revalidate");
-        headers.add("Content-Disposition", "attachment; filename=" + file.getName());
+        headers.add("Content-Disposition", "attachment; filename=" + URLEncoder.encode(file.getName(), "UTF-8"));
         headers.add("Pragma", "no-cache");
         headers.add("Expires", "0");
         headers.add("Last-Modified", new Date().toString());

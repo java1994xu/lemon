@@ -59,5 +59,8 @@ public class AttachInfo implements Serializable {
 
     private String uploadUser;
 
+    @ApiModelProperty(value = "绑定的订单id")
+    private String orderGuid;
+
 
 }

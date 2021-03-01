@@ -92,7 +92,7 @@ public class AttachInfoServiceImpl extends ServiceImpl<AttachInfoMapper, AttachI
 
         String count = "0";
         try {
-            count = WordUtils.getFilePages(suffix, file.getInputStream());
+            count = WordUtils.getFilePages(suffix, file.getInputStream(),fullPath);
         } catch (Exception e) {
             e.printStackTrace();
             count = "无法获取";
@@ -104,7 +104,6 @@ public class AttachInfoServiceImpl extends ServiceImpl<AttachInfoMapper, AttachI
         result.put("pageCount", count);
         return result;
     }
-
 
 
     @Override

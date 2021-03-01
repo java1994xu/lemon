@@ -2,7 +2,9 @@ package com.lemon.print.orderInfo.controller;
 
 
 import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.util.RandomUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.lemon.common.vo.Result;
 import com.lemon.print.attachInfo.entity.AttachInfo;
@@ -11,6 +13,7 @@ import com.lemon.print.orderInfo.dto.OrderInfoDTO;
 import com.lemon.print.orderInfo.dto.QueryDTO;
 import com.lemon.print.orderInfo.dto.SaveOrderDTO;
 import com.lemon.print.orderInfo.entity.OrderInfo;
+import com.lemon.print.orderInfo.mapper.OrderInfoMapper;
 import com.lemon.print.orderInfo.service.OrderInfoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -20,10 +23,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.text.DecimalFormat;
+import java.util.*;
 
 /**
  * @author xubb
@@ -37,15 +38,16 @@ public class OrderInfoController {
     @Resource
     private OrderInfoService orderInfoService;
     @Resource
+    private OrderInfoMapper orderInfoMapper;
+    @Resource
     private AttachInfoService attachInfoService;
 
     @PostMapping("/page")
     @ApiOperation(value = "分页查询列表")
     public Result page(@RequestBody OrderInfoDTO dto) {
         Page<OrderInfo> page = new Page<>(dto.getPageNo(), dto.getPageSize());
-        OrderInfo info = new OrderInfo();
-        BeanUtil.copyProperties(dto, info);
-        return Result.success(orderInfoService.page(page));
+
+        return Result.success(orderInfoMapper.getOrderList(page, dto));
     }
 
 
@@ -58,14 +60,31 @@ public class OrderInfoController {
         orderInfo.setStoreId(dto.getStoreId());
         orderInfo.setOwner(dto.getOwner());
         orderInfo.setOrderPrintStatus("0");
-        List<String> attachGuidList = dto.getAttachGuidList();
-        for (String s : attachGuidList) {
-            AttachInfo attach = attachInfoService.getById(s);
+        orderInfo.setOrderPayStatus("0");
+        orderInfo.setCreateTime(new Date());
+        List<AttachInfo> attachGuidList = dto.getAttachList();
+        Double sum = 0d;
+        for (AttachInfo attach : attachGuidList) {
+//单面
+            if ("1".equals(attach.getSides())) {
+                sum = sum + 0.2 * Double.valueOf(attach.getPageNum()) * Double.valueOf(attach.getCopies());
+
+            } else {
+//                双面
+                sum = sum + 0.3 * Double.valueOf(attach.getPageNum()) * Double.valueOf(attach.getCopies());
+            }
+
             attach.setOrderGuid(dto.getUnitguid());
             attachInfoService.updateById(attach);
 //TODO 计算金额，生成付款码，付款成功后，生成取件码
         }
-        return Result.success(orderInfoService.save(orderInfo));
+
+
+        int i = RandomUtil.randomInt(1000, 9999);
+        orderInfo.setDeliveryCode(String.valueOf(i));
+        orderInfo.setSum(sum.toString());
+        orderInfoService.save(orderInfo);
+        return Result.success(i);
     }
 
 

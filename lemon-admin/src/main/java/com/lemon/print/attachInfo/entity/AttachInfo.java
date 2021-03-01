@@ -52,6 +52,9 @@ public class AttachInfo implements Serializable {
     @ApiModelProperty(value = "打印份数")
     private String copies;
 
+    @ApiModelProperty(value = "单双面")
+    private String sides;
+
     @ApiModelProperty(value = "是否删除,默认1未删除，2删除")
     private String isDelete;
 

@@ -2,6 +2,7 @@ package com.lemon.print.orderInfo.dto;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.lemon.print.attachInfo.entity.AttachInfo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -27,6 +28,9 @@ public class SaveOrderDTO {
     private String owner;
 
 
-    @ApiModelProperty(value = "选择了哪些附件打印，将id组成list")
-    private List<String> attachGuidList;
+    @ApiModelProperty(value = "选择了哪些附件打印，list")
+    private List<AttachInfo> attachList;
+
+    @ApiModelProperty(value = "总价")
+    private String price;
 }

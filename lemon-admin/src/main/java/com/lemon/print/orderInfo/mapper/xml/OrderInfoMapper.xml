@@ -4,16 +4,16 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.lemon.print.orderInfo.entity.OrderInfo">
-        <id column="unitguid" property="unitguid" />
-        <result column="store_id" property="storeId" />
-        <result column="order_number" property="orderNumber" />
-        <result column="order_pay_status" property="orderPayStatus" />
-        <result column="order_print_status" property="orderPrintStatus" />
-        <result column="order_delivery_status" property="orderDeliveryStatus" />
-        <result column="delivery_code" property="deliveryCode" />
-        <result column="is_delete" property="isDelete" />
-        <result column="create_time" property="createTime" />
-        <result column="create_user" property="createUser" />
+        <id column="unitguid" property="unitguid"/>
+        <result column="store_id" property="storeId"/>
+        <result column="order_number" property="orderNumber"/>
+        <result column="order_pay_status" property="orderPayStatus"/>
+        <result column="order_print_status" property="orderPrintStatus"/>
+        <result column="order_delivery_status" property="orderDeliveryStatus"/>
+        <result column="delivery_code" property="deliveryCode"/>
+        <result column="is_delete" property="isDelete"/>
+        <result column="create_time" property="createTime"/>
+        <result column="create_user" property="createUser"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
@@ -24,6 +24,32 @@
         select * from order_info where 1=1
         and order_print_status='0'
         and store_id = #{storeId}
+
+    </select>
+    <select id="getOrderList" resultType="com.lemon.print.orderInfo.entity.OrderInfo">
+
+        select * from order_info where 1=1
+        <if test="query.owner!=null and query.owner != ''">
+            and owner = #{query.owner}
+        </if>
+        <if test="query.storeId!=null and query.storeId != ''">
+            and store_id = #{query.storeId}
+        </if>
+        <if test="query.orderNumber!=null and query.orderNumber != ''">
+            and order_number = #{query.orderNumber}
+        </if>
+        <if test="query.orderPayStatus!=null and query.orderPayStatus != ''">
+            and order_pay_status = #{query.orderPayStatus}
+        </if>
+        <if test="query.orderPrintStatus!=null and query.orderPrintStatus != ''">
+            and order_print_status = #{query.orderPrintStatus}
+        </if>
+        <if test="query.orderDeliveryStatus!=null and query.orderDeliveryStatus != ''">
+            and order_delivery_status = #{query.orderDeliveryStatus}
+        </if>
+        <if test="query.deliveryCode!=null and query.deliveryCode != ''">
+            and delivery_code = #{query.deliveryCode}
+        </if>
 
     </select>
 

@@ -29,7 +29,7 @@
         <mybatis-plus.version>3.3.2</mybatis-plus.version>
         <velocity.version>2.2</velocity.version>
         <mysql.version>8.0.20</mysql.version>
-        <hutool.version>5.3.6</hutool.version>
+        <hutool.version>5.3.8</hutool.version>
         <druid.version>1.1.17</druid.version>
         <fastjson.version>1.2.72</fastjson.version>
         <dynamic-datasource.version>2.5.4</dynamic-datasource.version>
@@ -235,6 +235,24 @@
             <artifactId>itextpdf</artifactId>
             <version>5.0.6</version>
         </dependency>
+        <dependency>
+            <groupId>fr.opensagres.xdocreport</groupId>
+            <artifactId>org.apache.poi.xwpf.converter.pdf</artifactId>
+            <version>1.0.4</version>
+        </dependency>
+        <!--2-->
+        <dependency>
+            <groupId>com.documents4j</groupId>
+            <artifactId>documents4j-local</artifactId>
+            <version>1.0.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.documents4j</groupId>
+            <artifactId>documents4j-transformer-msoffice-word</artifactId>
+            <version>1.0.3</version>
+        </dependency>
+
+        
         <!--POI   end   -->
 
 
@@ -256,6 +274,13 @@
             <artifactId>aspose-words</artifactId>
             <version>16.4.0</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.alipay.sdk</groupId>
+            <artifactId>alipay-sdk-java</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+
 
     </dependencies>
 

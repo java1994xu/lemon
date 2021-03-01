@@ -30,6 +30,8 @@ public class OrderInfo implements Serializable {
 
     @ApiModelProperty(value = "门店id")
     private String storeId;
+    @ApiModelProperty(value = "金额")
+    private String sum ;
 
     @ApiModelProperty(value = "订单编号")
     private String orderNumber;

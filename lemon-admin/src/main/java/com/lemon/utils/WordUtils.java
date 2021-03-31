@@ -1,21 +1,12 @@
 package com.lemon.utils;
 
-import cn.hutool.core.io.FileUtil;
-import com.aspose.words.Document;
-import com.aspose.words.DocumentBuilder;
-import com.aspose.words.FieldNumPages;
-import com.aspose.words.FieldType;
 import com.documents4j.api.DocumentType;
 import com.documents4j.api.IConverter;
 import com.documents4j.job.LocalConverter;
 import com.itextpdf.text.pdf.PdfReader;
 import org.apache.poi.hslf.HSLFSlideShow;
 import org.apache.poi.hslf.usermodel.SlideShow;
-import org.apache.poi.hslf.usermodel.SoundData;
-import org.apache.poi.hwpf.extractor.WordExtractor;
-import org.apache.poi.xslf.XSLFSlideShow;
 import org.apache.poi.xslf.usermodel.XMLSlideShow;
-import org.apache.poi.xwpf.usermodel.XWPFDocument;
 
 import java.io.*;
 
@@ -44,9 +35,13 @@ public class WordUtils {
 //            Document doc = new Document(fis);
 //            pageCount = doc.getPageCount();
 //第二种2、aspose转换pdf
-            WordPdfUtils.doc2pdf(fullPath,destPath);
-            //第三种：转换pdf
-//            WordUtils.word2Pdf(fullPath,destPath);
+//            WordPdfUtils.doc2pdf(fullPath,destPath);
+
+            //第三种：转换pdf，windows下可行，效率有点慢
+            WordUtils.word2Pdf(fullPath,destPath);
+            //第四种：
+//            FileUtils.wordToPDF(fullPath,destPath);
+//            OpenOfficeUtil.openOfficeToPDF(fullPath,destPath);
             PdfReader pdfReader = new PdfReader(new FileInputStream(new File(destPath)));
             pageCount = pdfReader.getNumberOfPages();
 //            FileUtil.del(destPath);
@@ -71,6 +66,8 @@ public class WordUtils {
 
         return pageCount.toString();
     }
+
+
 
 
 

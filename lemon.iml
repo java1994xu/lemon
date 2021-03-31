@@ -139,10 +139,9 @@
     <orderEntry type="library" name="Maven: dom4j:dom4j:1.6.1" level="project" />
     <orderEntry type="library" name="Maven: xml-apis:xml-apis:1.0.b2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.poi:poi-scratchpad:3.8" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.pdfbox:pdfbox:1.8.11" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.pdfbox:fontbox:1.8.11" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.pdfbox:jempbox:1.8.11" level="project" />
-    <orderEntry type="library" name="Maven: commons-logging:commons-logging:1.1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.pdfbox:pdfbox:2.0.6" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.pdfbox:fontbox:2.0.6" level="project" />
+    <orderEntry type="library" name="Maven: commons-logging:commons-logging:1.2" level="project" />
     <orderEntry type="library" name="Maven: com.itextpdf:itextpdf:5.0.6" level="project" />
     <orderEntry type="library" name="Maven: org.bouncycastle:bcmail-jdk14:1.38" level="project" />
     <orderEntry type="library" name="Maven: org.bouncycastle:bcprov-jdk14:1.38" level="project" />
@@ -162,8 +161,9 @@
     <orderEntry type="library" name="Maven: com.documents4j:documents4j-transformer-api:1.0.3" level="project" />
     <orderEntry type="library" name="Maven: com.documents4j:documents4j-util-all:1.0.3" level="project" />
     <orderEntry type="library" name="Maven: com.documents4j:documents4j-util-transformer-process:1.0.3" level="project" />
-    <orderEntry type="library" name="Maven: com.aspose:aspose.words.jdk.16:7.0.0" level="project" />
-    <orderEntry type="library" name="Maven: com.aspose:aspose-words:16.4.0" level="project" />
     <orderEntry type="library" name="Maven: com.alipay.sdk:alipay-sdk-java:3.0.0" level="project" />
+    <orderEntry type="library" name="Maven: com.jacob:jacob:1.18.0" level="project" />
+    <orderEntry type="library" name="Maven: org.artofsolving:jodconverter:2.2.2" level="project" />
+    <orderEntry type="library" name="Maven: org.artofsolving.jodconverter:jodconverter-core:3.0-beta-4" level="project" />
   </component>
 </module>

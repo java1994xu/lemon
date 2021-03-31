@@ -1,10 +1,7 @@
 package com.lemon.print.orderInfo.controller;
 
 
-import cn.hutool.core.bean.BeanUtil;
-import cn.hutool.core.util.RandomUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.lemon.common.vo.Result;
 import com.lemon.print.attachInfo.entity.AttachInfo;
@@ -23,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.text.DecimalFormat;
 import java.util.*;
 
 /**
@@ -76,15 +72,12 @@ public class OrderInfoController {
 
             attach.setOrderGuid(dto.getUnitguid());
             attachInfoService.updateById(attach);
-//TODO 计算金额，生成付款码，付款成功后，生成取件码
+
         }
 
-
-        int i = RandomUtil.randomInt(1000, 9999);
-        orderInfo.setDeliveryCode(String.valueOf(i));
         orderInfo.setSum(sum.toString());
         orderInfoService.save(orderInfo);
-        return Result.success(i);
+        return Result.success();
     }
 
 

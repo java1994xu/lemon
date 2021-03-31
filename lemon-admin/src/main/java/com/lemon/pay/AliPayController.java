@@ -1,7 +1,6 @@
 package com.lemon.pay;
 
-import cn.hutool.core.map.MapUtil;
-import cn.hutool.log.Log;
+import cn.hutool.core.util.RandomUtil;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.lemon.config.ali.AliPayConfig;
@@ -11,8 +10,6 @@ import com.lemon.print.orderInfo.entity.OrderInfo;
 import com.lemon.print.orderInfo.service.OrderInfoService;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.ibatis.annotations.Param;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -69,7 +66,6 @@ public class AliPayController {
 
         String format = df.format(sum);
         String form = aliPayService.aliPay("打印付款", id,format, id);
-//        String form = aliPayService.aliPay("打印付款", "11111110001","100", "xhfd-0001");
 
         System.out.println(form);
 
@@ -82,7 +78,7 @@ public class AliPayController {
     }
 
 
-    @ApiOperation("支付接口")
+    @ApiOperation("支付接口2测试")
     @GetMapping(value = "/pay2", produces = "application/xml")
     public void alipay2(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String form = aliPayService.aliPay("打印付款", "11111110001","100.00", "xhfd0001");
@@ -97,26 +93,19 @@ public class AliPayController {
 
 
     @ApiOperation("跳转前的处理")
-    @GetMapping("/alipay/notify_url")
+    @PostMapping("/notify_url")
     public void notifyAlipay(HttpServletRequest request, HttpServletResponse response) {
         Map<String, String> params = convertRequestParamsToMap(request); // 将异步通知中收到的待验证所有参数都存放到map中
         String paramsJson = JSON.toJSONString(params);
-        log.info("支付宝回调，{}", paramsJson);
-        String orderNo = params.get("trade_no");
+        log.info("notify_url支付宝回调，{}", paramsJson);
         String out_trade_no = params.get("out_trade_no");
-        log.info(orderNo);
         log.info(out_trade_no);
         OrderInfo orderInfo = new OrderInfo();
-        orderInfo.setUnitguid(orderNo);
+        orderInfo.setUnitguid(out_trade_no);
         orderInfo.setOrderPayStatus("1");
+        int i = RandomUtil.randomInt(1000, 9999);
+        orderInfo.setDeliveryCode(String.valueOf(i));
         orderInfoService.updateById(orderInfo);
-        try {
-            response.sendRedirect("http://http://122.51.59.149:8080/iprint/website/order_check.html");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
     }
 
     @ApiOperation("支付成功后最终跳转到哪个页面")
@@ -124,11 +113,12 @@ public class AliPayController {
     public void returnAlipay(HttpServletRequest request, HttpServletResponse response) {
         Map<String, String> params = convertRequestParamsToMap(request); // 将异步通知中收到的待验证所有参数都存放到map中
         String paramsJson = JSON.toJSONString(params);
-        log.info("支付宝回调，{}", paramsJson);
+        log.info("return_url支付宝回调，{}", paramsJson);
         try {
-
-
-            response.sendRedirect("http://http://122.51.59.149:8080/iprint/website/order_check.html");
+            String out_trade_no = params.get("out_trade_no");
+            log.info(out_trade_no);
+            OrderInfo order = orderInfoService.getById(out_trade_no);
+            response.sendRedirect("http://122.51.59.149:8080/iprint/website/order_check.html?delivery_code="+order.getDeliveryCode());
         } catch (IOException e) {
             e.printStackTrace();
         }

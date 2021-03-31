@@ -13,14 +13,14 @@ public class AliPayConfig {
     /**
      * netApp映射地址
      */
-    private static String neturl = "http://localhost:8081/lemon";
+    private static String neturl = "http://122.51.59.149:8080/lemon";
     /**
      * 应用的APPID
      * 沙箱的appid
      * 2021002128609652
      * 2021000117613535
      */
-    public static String app_id = "2021000117613535";
+    public static String app_id = "2021002129623280";
     /**
      * 商户私钥，您的PKCS8格式RSA2私钥  刚刚生成的私钥直接复制填写(填写自己利用第三方工具生成的私钥)
      */

@@ -44,7 +44,7 @@ public class AliPayController {
     @ApiOperation("支付接口")
     @GetMapping(value = "/pay", produces = "application/xml")
     public void alipay(@RequestParam("id") String id, HttpServletRequest request, HttpServletResponse response) throws IOException {
-        DecimalFormat df = new DecimalFormat("#.00");
+        DecimalFormat df = new DecimalFormat("0.00");
 
         QueryWrapper<AttachInfo> qw = new QueryWrapper<>();
         qw.eq("order_guid", id);

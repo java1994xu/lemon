@@ -48,5 +48,5 @@ public class AliPayConfig {
     /**
      * 支付宝网关
      */
-    public static String url = "https://openapi.alipaydev.com/gateway.do";
+    public static String url = "https://openapi.alipay.com/gateway.do";
 }

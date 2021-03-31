@@ -118,7 +118,7 @@ public class AliPayController {
             String out_trade_no = params.get("out_trade_no");
             log.info(out_trade_no);
             OrderInfo order = orderInfoService.getById(out_trade_no);
-            response.sendRedirect("http://122.51.59.149:8080/iprint/website/order_check.html?delivery_code="+order.getDeliveryCode());
+            response.sendRedirect("http://iprint.ink/js/website/order_check.html?delivery_code="+order.getDeliveryCode());
         } catch (IOException e) {
             e.printStackTrace();
         }

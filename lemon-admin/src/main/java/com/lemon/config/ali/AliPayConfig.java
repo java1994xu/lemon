@@ -13,7 +13,7 @@ public class AliPayConfig {
     /**
      * netApp映射地址
      */
-    private static String neturl = "http://iprint.ink/";
+    private static String neturl = "http://iprint.ink/lemon";
     /**
      * 应用的APPID
      * 沙箱的appid

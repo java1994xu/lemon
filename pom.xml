@@ -252,6 +252,22 @@
             <version>1.0.3</version>
         </dependency>
 
+<!--        <dependency>-->
+<!--            <groupId>e-iceblue</groupId>-->
+<!--            <artifactId>spire.pdf</artifactId>-->
+<!--            <version>3.11.6</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>e-iceblue</groupId>-->
+<!--            <artifactId>spire.pdf.free</artifactId>-->
+<!--            <version>3.9.0</version>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>e-iceblue</groupId>
+            <artifactId>spire.presentation.free</artifactId>
+            <version>2.6.1</version>
+        </dependency>
+
 
         <!--POI   end   -->
 
@@ -263,12 +279,11 @@
             <version>1.8.11</version>
         </dependency>
         <!--aspose本地依赖，用于word页数获取-->
-       <!-- <dependency>
-            <groupId>com.aspose</groupId>
-            <artifactId>aspose.words.jdk.16</artifactId>
-            <version>7.0.0</version>
-        </dependency>-->
-
+        <!-- <dependency>
+             <groupId>com.aspose</groupId>
+             <artifactId>aspose.words.jdk.16</artifactId>
+             <version>7.0.0</version>
+         </dependency>-->
 
 
         <dependency>
@@ -294,7 +309,7 @@
             <artifactId>pdfbox</artifactId>
             <version>2.0.6</version>
         </dependency>
-<!---->
+        <!---->
 
         <dependency>
             <groupId>org.artofsolving</groupId>
@@ -306,61 +321,61 @@
             <artifactId>jodconverter-core</artifactId>
             <version>3.0-beta-4</version>
         </dependency>
-  <!--      <dependency>
-            <groupId>org.jodconverter</groupId>
-            <artifactId>jodconverter-core</artifactId>
-            <version>4.4.2</version>
-        </dependency>-->
+        <!--      <dependency>
+                  <groupId>org.jodconverter</groupId>
+                  <artifactId>jodconverter-core</artifactId>
+                  <version>4.4.2</version>
+              </dependency>-->
 
-<!--        <dependency>
-            <groupId>org.openoffice</groupId>
-            <artifactId>jurt</artifactId>
-            <version>3.0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.openoffice</groupId>
-            <artifactId>ridl</artifactId>
-            <version>3.0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.openoffice</groupId>
-            <artifactId>juh</artifactId>
-            <version>3.0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.openoffice</groupId>
-            <artifactId>unoil</artifactId>
-            <version>3.0.1</version>
-        </dependency>-->
+        <!--        <dependency>
+                    <groupId>org.openoffice</groupId>
+                    <artifactId>jurt</artifactId>
+                    <version>3.0.1</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.openoffice</groupId>
+                    <artifactId>ridl</artifactId>
+                    <version>3.0.1</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.openoffice</groupId>
+                    <artifactId>juh</artifactId>
+                    <version>3.0.1</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.openoffice</groupId>
+                    <artifactId>unoil</artifactId>
+                    <version>3.0.1</version>
+                </dependency>-->
 
 
-      <!--  <dependency>
-            <groupId>org.openoffice</groupId>
-            <artifactId>jurt</artifactId>
-            <version>3.0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.openoffice</groupId>
-            <artifactId>ridl</artifactId>
-            <version>3.0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.openoffice</groupId>
-            <artifactId>juh</artifactId>
-            <version>3.0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.openoffice</groupId>
-            <artifactId>unoil</artifactId>
-            <version>3.0.1</version>
-        </dependency>
+        <!--  <dependency>
+              <groupId>org.openoffice</groupId>
+              <artifactId>jurt</artifactId>
+              <version>3.0.1</version>
+          </dependency>
+          <dependency>
+              <groupId>org.openoffice</groupId>
+              <artifactId>ridl</artifactId>
+              <version>3.0.1</version>
+          </dependency>
+          <dependency>
+              <groupId>org.openoffice</groupId>
+              <artifactId>juh</artifactId>
+              <version>3.0.1</version>
+          </dependency>
+          <dependency>
+              <groupId>org.openoffice</groupId>
+              <artifactId>unoil</artifactId>
+              <version>3.0.1</version>
+          </dependency>
 
-        &lt;!&ndash;jodconverter2.2.1必须依赖slf4j-jdk14必须这个版本，不然源码中日志会报错，很low的一个问题&ndash;&gt;
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-jdk14</artifactId>
-            <version>1.4.3</version>
-        </dependency>-->
+          &lt;!&ndash;jodconverter2.2.1必须依赖slf4j-jdk14必须这个版本，不然源码中日志会报错，很low的一个问题&ndash;&gt;
+          <dependency>
+              <groupId>org.slf4j</groupId>
+              <artifactId>slf4j-jdk14</artifactId>
+              <version>1.4.3</version>
+          </dependency>-->
 
 
     </dependencies>
@@ -386,11 +401,15 @@
             <name>aliyun</name>
             <url>https://maven.aliyun.com/repository/public</url>
         </repository>
-       <!-- <repository>
-            <id>AsposeJavaAPI</id>
-            <name>Aspose Java API</name>
-            <url>https://repository.aspose.com/repo/</url>
-        </repository>-->
+        <repository>
+            <id>com.e-iceblue</id>
+            <url>http://repo.e-iceblue.cn/repository/maven-public/</url>
+        </repository>
+        <!-- <repository>
+             <id>AsposeJavaAPI</id>
+             <name>Aspose Java API</name>
+             <url>https://repository.aspose.com/repo/</url>
+         </repository>-->
     </repositories>
 
 </project>

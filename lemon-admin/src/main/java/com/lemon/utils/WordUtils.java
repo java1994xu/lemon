@@ -4,6 +4,8 @@ import com.documents4j.api.DocumentType;
 import com.documents4j.api.IConverter;
 import com.documents4j.job.LocalConverter;
 import com.itextpdf.text.pdf.PdfReader;
+import com.spire.pdf.FileFormat;
+import com.spire.presentation.Presentation;
 import org.apache.poi.hslf.HSLFSlideShow;
 import org.apache.poi.hslf.usermodel.SlideShow;
 import org.apache.poi.xslf.usermodel.XMLSlideShow;
@@ -26,11 +28,11 @@ public class WordUtils {
      * @return
      * @throws Exception
      */
-    public static String getFilePages(String suffix, InputStream fis ,String fullPath) throws Exception {
+    public static String getFilePages(String suffix, InputStream fis, String fullPath) throws Exception {
 
         Integer pageCount = 0;
         if (".doc".equals(suffix) || ".docx".equals(suffix)) {
-            String destPath = fullPath.replace(suffix,".pdf");
+            String destPath = fullPath.replace(suffix, ".pdf");
 //第一种1、aspose直接读取
 //            Document doc = new Document(fis);
 //            pageCount = doc.getPageCount();
@@ -38,7 +40,7 @@ public class WordUtils {
 //            WordPdfUtils.doc2pdf(fullPath,destPath);
 
             //第三种：转换pdf，windows下可行，效率有点慢
-            WordUtils.word2Pdf(fullPath,destPath);
+            WordUtils.word2Pdf(fullPath, destPath);
             //第四种：
 //            FileUtils.wordToPDF(fullPath,destPath);
 //            OpenOfficeUtil.openOfficeToPDF(fullPath,destPath);
@@ -48,10 +50,12 @@ public class WordUtils {
 //            System.out.println("删除文件结束");
 
         } else if (".ppt".equals(suffix)) {
+
             SlideShow pptfile = new SlideShow(new HSLFSlideShow(fis));
             pageCount = pptfile.getSlides().length;
 
         } else if (".pptx".equals(suffix)) {
+
             XMLSlideShow pptxfile = new XMLSlideShow(fis);
             pageCount = pptxfile.getSlides().length;
 
@@ -67,8 +71,20 @@ public class WordUtils {
         return pageCount.toString();
     }
 
+    public static void ppt2Pdf(String origPath, String destPath) throws Exception {
+//创建Presentation实例
 
+        Presentation presentation = new Presentation();
 
+//加载PPT示例文档
+
+        presentation.loadFromFile(origPath);
+
+//保存为PDF
+
+        presentation.saveToFile(destPath, com.spire.presentation.FileFormat.PDF);
+        presentation.dispose();
+    }
 
 
     public static void word2Pdf(String origPath, String destPath) {

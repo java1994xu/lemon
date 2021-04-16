@@ -161,6 +161,7 @@
     <orderEntry type="library" name="Maven: com.documents4j:documents4j-transformer-api:1.0.3" level="project" />
     <orderEntry type="library" name="Maven: com.documents4j:documents4j-util-all:1.0.3" level="project" />
     <orderEntry type="library" name="Maven: com.documents4j:documents4j-util-transformer-process:1.0.3" level="project" />
+    <orderEntry type="library" name="Maven: e-iceblue:spire.presentation.free:2.6.1" level="project" />
     <orderEntry type="library" name="Maven: com.alipay.sdk:alipay-sdk-java:3.0.0" level="project" />
     <orderEntry type="library" name="Maven: com.jacob:jacob:1.18.0" level="project" />
     <orderEntry type="library" name="Maven: org.artofsolving:jodconverter:2.2.2" level="project" />

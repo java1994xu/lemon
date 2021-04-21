@@ -96,6 +96,7 @@ public class OrderInfoController {
         for (OrderInfo orderInfo : printOrderList) {
             Map<String, Object> orderMap = new HashMap<>();
             orderMap.put("orderId", orderInfo.getUnitguid());
+            orderMap.put("deliveryCode", orderInfo.getDeliveryCode());
             LambdaQueryWrapper<AttachInfo> queryWrapper = new LambdaQueryWrapper<>();
             queryWrapper.eq(AttachInfo::getOrderGuid, orderInfo.getUnitguid());
             List<AttachInfo> attachList = attachInfoService.list(queryWrapper);

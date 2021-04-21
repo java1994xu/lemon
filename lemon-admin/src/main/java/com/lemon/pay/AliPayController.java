@@ -1,6 +1,7 @@
 package com.lemon.pay;
 
 import cn.hutool.core.util.RandomUtil;
+import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.lemon.config.ali.AliPayConfig;
@@ -100,11 +101,12 @@ public class AliPayController {
         log.info("notify_url支付宝回调，{}", paramsJson);
         String out_trade_no = params.get("out_trade_no");
         log.info(out_trade_no);
-        OrderInfo orderInfo = new OrderInfo();
-        orderInfo.setUnitguid(out_trade_no);
+        OrderInfo orderInfo = orderInfoService.getById(out_trade_no);
+        if(StrUtil.isBlank(orderInfo.getDeliveryCode())){
+            int i = RandomUtil.randomInt(1000, 9999);
+            orderInfo.setDeliveryCode(String.valueOf(i));
+        }
         orderInfo.setOrderPayStatus("1");
-        int i = RandomUtil.randomInt(1000, 9999);
-        orderInfo.setDeliveryCode(String.valueOf(i));
         orderInfoService.updateById(orderInfo);
     }
 
